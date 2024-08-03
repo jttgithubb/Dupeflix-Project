@@ -68,7 +68,7 @@ public class SingleStarServlet extends HttpServlet {
 
             JsonArray jsonArray = new JsonArray();
 
-            // Iterate through each row of rs
+            // Iterate through each row of rs, which is a movie
             while (rs.next()) {
 
                 String starId = rs.getString("starId");

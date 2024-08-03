@@ -58,12 +58,12 @@ function handleResult(resultData) {
     for (let i = 0; i < resultData.length; i++) {
         let rowHTML = "";  
         rowHTML += "<tr>";
-        rowHTML += "<th><a href='single-movie.html?id=" + resultData[i]['movie_id'] + "'>" + "not a title" + "</a></th>";
+        rowHTML += "<th><a href='single-movie.html?id=" + resultData[i]['movie_id'] + "'>" + resultData[i]['movie_title'] + "</a></th>";
         rowHTML += "<th>" + resultData[i]["movie_year"] + "</th>";
-        rowHTML += "<th>" + resultData[i]["movie_director"] + "</th>";
+        rowHTML += "<th>" + resultData[i]["movie_director"] + "</th>";   
         rowHTML += "</tr>";
 
-        // Append the row created to the table body, which will refresh the page
+        // Append the row created to the table body, which will refresh the page  
         movieTableBodyElement.append(rowHTML);
     }
 }
