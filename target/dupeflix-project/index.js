@@ -28,12 +28,28 @@ function handleMovieListResult(resultData) {
         let rowHTML = "";
         rowHTML += "<tr>";
         rowHTML += "<th>" + (i+1) + "</th>";
-        rowHTML += "<th>" + resultData[i]["movie_title"] + "</th>";
+        rowHTML += "<th><a href='single-movie.html?id=" + resultData[i]['movie_id'] + "'>" + resultData[i]["movie_title"] + "</a></th>";
         rowHTML += "<th>" + resultData[i]["movie_year"] + "</th>";
         rowHTML += "<th>" + resultData[i]["movie_director"] + "</th>";
+        rowHTML += "<th>"
+        for (let j = 0; j < resultData[i]["movie_genres"].length; j++) {
+            rowHTML += resultData[i]["movie_genres"][j];
+            if (j < resultData[i]["movie_genres"].length - 1) {
+                rowHTML += ", ";
+            }
+        }
+        rowHTML += "</th>";
+        rowHTML += "<th>"
+        for (let j = 0; j < resultData[i]["movie_stars"].length; j++) {
+            rowHTML += '<a href="single-star.html?id=' + resultData[i]['stars_id'][j] + '">' + resultData[i]["movie_stars"][j]    // display star_name for the link text
+            if (j < resultData[i]["movie_stars"].length - 1) {
+                rowHTML += ", ";
+            }
+            rowHTML += '</a>';
+        }
+        rowHTML += "</th>";
         rowHTML += "<th>" + resultData[i]["movie_rating"] + "</th>";
-        rowHTML += "</tr>";
-
+            
         // Append the row created to the table body, which will refresh the page
         movieTableBodyElement.append(rowHTML);
     }
